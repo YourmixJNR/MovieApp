@@ -2,15 +2,15 @@ import React from 'react'
 import { useState } from 'react'
 
 const SearchBar = ({onSearch}) => {
-    const [searchQuery, setSearchQuery] = useState('');
+    const [query, setQuery] = useState('');
 
     const handleInputChange = (event) => {
         // do something with searchQuery here...
-        setSearchQuery(event.target.value);
+        setQuery(event.target.value);
     }
 
     const handleSearch = () => {
-        onSearch(searchQuery);
+        onSearch(query);
     }
 
   return (
@@ -18,7 +18,7 @@ const SearchBar = ({onSearch}) => {
 
       <input
         type="text"
-        value={searchQuery}
+        value={query}
         onChange={handleInputChange}
       />
 
