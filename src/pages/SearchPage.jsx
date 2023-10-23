@@ -11,11 +11,11 @@ const SearchPage = () => {
             if (data.Response === 'True') {
                 setSearchResult(data);
             } else {
-                setSearchResult(null); // or set an appropriate default value
+                setSearchResult(null);
             }
         } catch (error) {
             console.log('Error', error);
-            setSearchResult(null); // or set an appropriate default value
+            setSearchResult(null);
         }
     };
 
@@ -31,7 +31,6 @@ const SearchPage = () => {
                                 alt=""
                             />
                             <p>{item.Year}</p>
-                            {/* Add other properties you want to display */}
                         </div>
                     ))}
                 </div>
