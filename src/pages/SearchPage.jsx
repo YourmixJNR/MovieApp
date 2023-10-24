@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import SearchBar from '../components/SearchBar';
 
 const SearchPage = () => {
@@ -31,6 +32,7 @@ const SearchPage = () => {
                                 alt=""
                             />
                             <p>{item.Year}</p>
+                            <Link to={`/${item.imdbId}`}>Details</Link>
                         </div>
                     ))}
                 </div>

@@ -11,7 +11,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<SearchPage />} />
-          <Route path="" element />
+          <Route path="/:" element />
         </Routes>
         </div>
       </div>
