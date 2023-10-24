@@ -32,7 +32,7 @@ const SearchPage = () => {
                                 alt=""
                             />
                             <p>{item.Year}</p>
-                            <Link to={`/${item.imdbId}`}>Details</Link>
+                            <Link to={`/${item.imdbID}`}>Details</Link>
                         </div>
                     ))}
                 </div>
