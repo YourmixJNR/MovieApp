@@ -19,7 +19,7 @@ const MovieDetailPage = () => {
 
   useEffect(() => {
     fetchMovieDetails();
-  }, [imdbID]);
+  }, [ fetchMovieDetails, imdbID]);
 
   return (
     <div className="container">
