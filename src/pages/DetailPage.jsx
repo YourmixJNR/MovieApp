@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useParams } from "react-router-dom";
 
 const MovieDetailPage = () => {
   const { imdbID } = useParams();
   const [details, setDetails] = useState({});
 
-  const fetchMovieDetails = async () => {
+  const fetchMovieDetails = useCallback(async () => {
     try {
       const response = await fetch(
         `http://www.omdbapi.com/?i=${imdbID}&apikey=${process.env.REACT_APP_API}`
@@ -15,21 +15,18 @@ const MovieDetailPage = () => {
     } catch (error) {
       console.log("Error:", error);
     }
-  };
+  }, [imdbID]);
 
   useEffect(() => {
     fetchMovieDetails();
-  }, [ fetchMovieDetails, imdbID]);
+  }, [fetchMovieDetails]);
 
   return (
     <div className="container">
       <div className="row justify-content-center">
         <div className="col col-lg-6 mt-5">
           <div className="text-center">
-            <img
-              src={details.Poster}
-              alt=""
-            />
+            <img src={details.Poster} alt="" />
             <h1>{details.Title}</h1>
           </div>
           <table className="table table-hover">
