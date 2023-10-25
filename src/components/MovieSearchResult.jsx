@@ -1,7 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import '../App.css'
 
 const MovieSearchResult = ({ searchResult }) => {
+
+  let getTitle = (item) => {
+    const title = item.Title.split('\n')[0]
+    if (title.length > 25) {
+        return title.slice(0, 20) + '...'
+    }
+    return title
+}
+
   return (
     <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       {searchResult &&
@@ -10,7 +20,7 @@ const MovieSearchResult = ({ searchResult }) => {
             <div className="card shadow-sm">
               <img src={item.Poster} className="card-img-top" alt="" />
               <div className="card-body">
-                <h5 className="card-title">{item.Title}</h5>
+                <h3 className="card-title">{getTitle(item)}</h3>
                 <p className="card-text">Year: {item.Year}</p>
                 <Link to={`/${item.imdbID}`} className="btn btn-primary">
                   View Details
