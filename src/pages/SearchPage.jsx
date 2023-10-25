@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import MovieSearchResult from '../components/SearchResult';
 
-const SearchPage = () => {
+const MovieSearchPage = () => {
     const [query, setQuery] = useState('');
     const [searchResult, setSearchResult] = useState(null);
 
@@ -12,13 +12,13 @@ const SearchPage = () => {
     useEffect(() => {
         const queryTerm = localStorage.getItem("searchQuery");
 
-        if (queryTerm) {
+        if(queryTerm) {
             setQuery(queryTerm);
-            handleSearch(queryTerm);
+            handleMovieSearch(queryTerm);
         }
     }, []);
 
-    const handleSearch = async (query) => {
+    const handleMovieSearch = async (query) => {
         localStorage.setItem("searchQuery", query);
 
         try {
@@ -42,28 +42,11 @@ const SearchPage = () => {
                 value={query}
                 onChange={handleInputChange}
             />
-            <button onClick={() => handleSearch(query)}>Search</button>
-
-            <div>
-                {searchResult && searchResult.Search ? (
-                    <div>
-                        {searchResult.Search.map((item, index) => (
-                            <div key={index}>
-                                <img
-                                    src={item.Poster}
-                                    alt=""
-                                />
-                                <p>{item.Year}</p>
-                                <Link to={`/${item.imdbID}`}>Details</Link>
-                            </div>
-                        ))}
-                    </div>
-                ) : (
-                    <p>No results yet</p>
-                )}
-            </div>
+            <button onClick={() => handleMovieSearch(query)}>Search</button>
+            
+            <MovieSearchResult searchResult={searchResult} />
         </div>
     );
 };
 
-export default SearchPage;
+export default MovieSearchPage;

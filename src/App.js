@@ -7,15 +7,11 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <div className="">
-        <div className="">
-        <Header />
+      <Header />
         <Routes>
           <Route path="/" element={<SearchPage />} />
           <Route path="/:imdbID" element={<DetailPage />} />
         </Routes>
-        </div>
-      </div>
     </Router>
   );
 }
