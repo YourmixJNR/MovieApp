@@ -30,7 +30,7 @@ const MovieSearchPage = () => {
 
     try {
       const response = await fetch(
-        `http://www.omdbapi.com/?s=${query}&apikey=${process.env.REACT_APP_API}`
+        `https://www.omdbapi.com/?s=${query}&apikey=${process.env.REACT_APP_API}`
       );
       const data = await response.json();
       if (data.Error || data.Search === undefined) {
