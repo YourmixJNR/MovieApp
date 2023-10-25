@@ -3,14 +3,14 @@
 A Movie Search App built using React.js, fetching data from the OMDb API, and styled with Bootstrap. The app allows users to search for movies and view their details.
 
 ## Features
--- Users can search for movies using the search bar.
--- Movie details are displayed upon clicking on a particular movie.
--- Users can explore various movie details such as the plot, release date, director, writer, actors, and awards.
+- Users can search for movies using the search bar.
+- Movie details are displayed upon clicking on a particular movie.
+- Users can explore various movie details such as the plot, release date, director, writer, actors, and awards.
 
 ## Technologies Used
--- React.js
--- OMDb API
--- Bootstrap
+- React.js
+- OMDb API
+- Bootstrap
 
 ## Installation
 To run the project locally, follow these steps:
