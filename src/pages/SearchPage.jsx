@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MovieSearchResult from "../components/MovieSearchResult";
+import '../App.css'
 
 const MovieSearchPage = () => {
   const [query, setQuery] = useState("");
@@ -44,9 +45,29 @@ const MovieSearchPage = () => {
 
   return (
     <div>
-      <input type="text" value={query} onChange={handleInputChange} />
-      <button onClick={() => handleMovieSearch(query)}>Search</button>
-      <button onClick={clearResult}>Clear Result</button>
+      <section className="py-5 text-center container">
+        <div className="row py-lg-5">
+          <div className="col-lg-6 col-md-8 mx-auto">
+            <h1 className="fw-light">Find Your Next Gem 🎬</h1>
+            <p className="lead text-body-secondary">
+            Let's embark on a cinematic adventure together! Search for your next movie and get ready for an unforgettable experience.
+            </p>
+            <p>
+                <input type="text" value={query} onChange={handleInputChange} placeholder="ex. Jajagun" />
+                <br />
+              <button
+                className="btn btn-primary my-2 me-2"
+                onClick={() => handleMovieSearch(query)}
+              >
+                Search
+              </button>
+              <button className="btn btn-secondary my-2" onClick={clearResult}>
+                Clear Result
+              </button>
+            </p>
+          </div>
+        </div>
+      </section>
 
       {searchResult !== "No Result Found" ? (
         <MovieSearchResult searchResult={searchResult} />

@@ -10,3 +10,15 @@
     color:  #fff;
     font-weight: 600;
 }
+
+/* Search Page */
+
+.fw-light {
+    font-weight: 500 !important;
+}
+
+input {
+    border: 1px solid #707070;
+    outline: none;
+    margin-bottom: 10px;
+}
