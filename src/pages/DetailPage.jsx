@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const MovieDetailPage = () => {
   const { imdbID } = useParams();
@@ -7,11 +7,13 @@ const MovieDetailPage = () => {
 
   const fetchMovieDetails = async () => {
     try {
-      const response = await fetch(`http://www.omdbapi.com/?i=${imdbID}&apikey=${process.env.REACT_APP_API}`);
+      const response = await fetch(
+        `http://www.omdbapi.com/?i=${imdbID}&apikey=${process.env.REACT_APP_API}`
+      );
       const result = await response.json();
       setDetails(result);
-    } catch(error) {
-      console.log('Error:', error);
+    } catch (error) {
+      console.log("Error:", error);
     }
   };
 
@@ -21,12 +23,9 @@ const MovieDetailPage = () => {
 
   return (
     <div>
-      <img
-        src={details.Poster}
-        alt=""
-      />
+      <img src={details.Poster} alt="" />
     </div>
   );
-}
+};
 
 export default MovieDetailPage;
