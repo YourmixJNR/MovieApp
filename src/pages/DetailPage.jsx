@@ -19,17 +19,20 @@ const MovieDetailPage = () => {
 
   useEffect(() => {
     fetchMovieDetails();
-  }, []);
+  }, [imdbID]);
 
   return (
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col col-lg-6 mt-5">
-          <div class="text-center">
-            <img src={details.Poster} />
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col col-lg-6 mt-5">
+          <div className="text-center">
+            <img
+              src={details.Poster}
+              alt=""
+            />
             <h1>{details.Title}</h1>
           </div>
-          <table class="table table-hover">
+          <table className="table table-hover">
             <tbody>
               <tr>
                 <th scope="row">Plot</th>
