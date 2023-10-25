@@ -1,16 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import '../App.css'
+import "../App.css";
 
 const MovieSearchResult = ({ searchResult }) => {
-
   let getTitle = (item) => {
-    const title = item.Title.split('\n')[0]
+    const title = item.Title.split("\n")[0];
     if (title.length > 25) {
-        return title.slice(0, 20) + '...'
+      return title.slice(0, 20) + "...";
     }
-    return title
-}
+    return title;
+  };
 
   return (
     <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
