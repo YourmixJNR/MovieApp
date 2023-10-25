@@ -22,9 +22,44 @@ const MovieDetailPage = () => {
   }, []);
 
   return (
-    <div>
-      <img src={details.Poster} alt="" />
+    <div class="container">
+    <div class="row justify-content-center">
+        <div class="col col-lg-6 mt-5">
+            <div class="text-center">
+                <img src={details.Poster} />
+                <h1>{details.Title}</h1>
+            </div>
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <th scope="row">Plot</th>
+                        <td>{details.Plot}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Released</th>
+                        <td>{details.Released}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Director</th>
+                        <td>{details.Director}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Writer</th>
+                        <td>{details.Writer}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Actors</th>
+                        <td>{details.Actors}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Awards</th>
+                        <td>{details.Awards}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+</div>
   );
 };
 
