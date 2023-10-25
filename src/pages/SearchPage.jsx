@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MovieSearchResult from "../components/MovieSearchResult";
-import '../App.css'
+import "../App.css";
 
 const MovieSearchPage = () => {
   const [query, setQuery] = useState("");
@@ -50,11 +50,17 @@ const MovieSearchPage = () => {
           <div className="col-lg-6 col-md-8 mx-auto">
             <h1 className="fw-light">Find Your Next Gem 🎬</h1>
             <p className="lead text-body-secondary">
-            Let's embark on a cinematic adventure together! Search for your next movie and get ready for an unforgettable experience.
+              Let's embark on a cinematic adventure together! Search for your
+              next movie and get ready for an unforgettable experience.
             </p>
             <p>
-                <input type="text" value={query} onChange={handleInputChange} placeholder="ex. Jajagun" />
-                <br />
+              <input
+                type="text"
+                value={query}
+                onChange={handleInputChange}
+                placeholder="ex. Jajagun"
+              />
+              <br />
               <button
                 className="btn btn-primary my-2 me-2"
                 onClick={() => handleMovieSearch(query)}
@@ -70,7 +76,11 @@ const MovieSearchPage = () => {
       </section>
 
       {searchResult !== "No Result Found" ? (
-        <MovieSearchResult searchResult={searchResult} />
+        <div className="album py-5 bg-body-tertiary">
+          <div className="container">
+            <MovieSearchResult searchResult={searchResult} />
+          </div>
+        </div>
       ) : (
         <p>No results found</p>
       )}
