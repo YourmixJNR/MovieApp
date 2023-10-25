@@ -38,3 +38,11 @@ input {
 .card-title {
     font-weight: 600;
 }
+
+/* No Result Found */
+
+.noResult {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}

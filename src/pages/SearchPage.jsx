@@ -82,7 +82,7 @@ const MovieSearchPage = () => {
           </div>
         </div>
       ) : (
-        <p>No results found</p>
+        <p className="noResult"> Oops No results found</p>
       )}
     </div>
   );

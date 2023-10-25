@@ -8,7 +8,7 @@ const MovieDetailPage = () => {
   const fetchMovieDetails = useCallback(async () => {
     try {
       const response = await fetch(
-        `http://www.omdbapi.com/?i=${imdbID}&apikey=${process.env.REACT_APP_API}`
+        `https://www.omdbapi.com/?i=${imdbID}&apikey=${process.env.REACT_APP_API}`
       );
       const result = await response.json();
       setDetails(result);
