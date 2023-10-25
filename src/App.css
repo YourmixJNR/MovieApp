@@ -1,0 +1,12 @@
+/* Custom Style */
+
+/* Header */
+
+.container {
+    justify-content: center !important;
+}
+
+.container h4 {
+    color:  #fff;
+    font-weight: 600;
+}
