@@ -1,5 +1,6 @@
+// MovieSearchPage component
 import React, { useState, useEffect } from 'react';
-import MovieSearchResult from '../components/SearchResult';
+import MovieSearchResult from '../components/MovieSearchResult';
 
 const MovieSearchPage = () => {
     const [query, setQuery] = useState('');
@@ -19,10 +20,10 @@ const MovieSearchPage = () => {
     }, []);
 
     const clearResult = () => {
-        setSearchResult([]);
+        setSearchResult(null);
         setQuery('');
-        localStorage.removeItem("searchQuery")
-    }
+        localStorage.removeItem("searchQuery");
+    };
 
     const handleMovieSearch = async (query) => {
         localStorage.setItem("searchQuery", query);
@@ -30,14 +31,13 @@ const MovieSearchPage = () => {
         try {
             const response = await fetch(`http://www.omdbapi.com/?s=${query}&apikey=${process.env.REACT_APP_API}`);
             const data = await response.json();
-            if (data.Response === 'True') {
-                setSearchResult(data);
+            if (data.Error || data.Search === undefined) {
+                setSearchResult('No Result Found');
             } else {
-                setSearchResult(null);
+                setSearchResult(data);
             }
         } catch (error) {
             console.log('Error', error);
-            setSearchResult(null);
         }
     };
 
@@ -51,7 +51,11 @@ const MovieSearchPage = () => {
             <button onClick={() => handleMovieSearch(query)}>Search</button>
             <button onClick={clearResult}>Clear Result</button>
             
-            <MovieSearchResult searchResult={searchResult} />
+            {searchResult !== 'No Result Found' ? (
+                <MovieSearchResult searchResult={searchResult} />
+            ) : (
+                <p>No results found</p>
+            )}
         </div>
     );
 };
