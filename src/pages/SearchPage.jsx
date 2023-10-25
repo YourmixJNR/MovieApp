@@ -18,6 +18,12 @@ const MovieSearchPage = () => {
         }
     }, []);
 
+    const clearResult = () => {
+        setSearchResult([]);
+        setQuery('');
+        localStorage.removeItem("searchQuery")
+    }
+
     const handleMovieSearch = async (query) => {
         localStorage.setItem("searchQuery", query);
 
@@ -43,6 +49,7 @@ const MovieSearchPage = () => {
                 onChange={handleInputChange}
             />
             <button onClick={() => handleMovieSearch(query)}>Search</button>
+            <button onClick={clearResult}>Clear Result</button>
             
             <MovieSearchResult searchResult={searchResult} />
         </div>

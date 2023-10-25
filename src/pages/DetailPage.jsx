@@ -1,12 +1,11 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-const DetailPage = () => {
+const MovieDetailPage = () => {
   const { imdbID } = useParams();
   const [details, setDetails] = useState({});
 
-  const fetchDetails = async () => {
+  const fetchMovieDetails = async () => {
     try {
       const response = await fetch(`http://www.omdbapi.com/?i=${imdbID}&apikey=${process.env.REACT_APP_API}`);
       const result = await response.json();
@@ -17,7 +16,7 @@ const DetailPage = () => {
   };
 
   useEffect(() => {
-    fetchDetails()
+    fetchMovieDetails();
   }, []);
 
   return (
@@ -27,7 +26,7 @@ const DetailPage = () => {
         alt=""
       />
     </div>
-  )
+  );
 }
 
-export default DetailPage;
+export default MovieDetailPage;
