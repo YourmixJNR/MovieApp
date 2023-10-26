@@ -17,7 +17,7 @@ const MovieSearchResult = ({ searchResult }) => {
         searchResult.Search.map((item, index) => (
           <div className="col" key={index}>
             <div className="card shadow-sm">
-              <img src={item.Poster} className="card-img-top" alt="" />
+              <img src={item.Poster == "N/A" ? "/noimage.jpg" : item.Poster} className="card-img-top" alt="" />
               <div className="card-body">
                 <h3 className="card-title">{getTitle(item)}</h3>
                 <p className="card-text">Year: {item.Year}</p>
