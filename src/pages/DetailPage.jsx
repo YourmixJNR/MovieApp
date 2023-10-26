@@ -25,9 +25,9 @@ const MovieDetailPage = () => {
     <div className="container">
       <div className="row justify-content-center">
         <div className="col col-lg-6 mt-5">
-          <div className="text-center">
+          <div className="text-center mt-5">
             <img src={details.Poster} alt="" />
-            <h1>{details.Title}</h1>
+            <h1 className="mt-2">{details.Title}</h1>
           </div>
           <table className="table table-hover">
             <tbody>
