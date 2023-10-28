@@ -1,14 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "../App.css";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import '../App.css';
 
 const MovieSearchResult = ({ searchResult }) => {
   let getTitle = (item) => {
-    const title = item.Title.split("\n")[0];
+    const title = item.Title.split('\n')[0];
     if (title.length > 25) {
-      return title.slice(0, 20) + "...";
+      return title.slice(0, 20) + '...';
     }
     return title;
+  };
+
+  const handleImageError = (e) => {
+    e.target.src = '/noimage.jpg'; 
   };
 
   return (
@@ -17,7 +21,12 @@ const MovieSearchResult = ({ searchResult }) => {
         searchResult.Search.map((item, index) => (
           <div className="col" key={index}>
             <div className="card shadow-sm">
-              <img src={item.Poster == "N/A" ? "/noimage.jpg" : item.Poster} className="card-img-top" alt="" />
+              <img
+                src={item.Poster === 'N/A' ? '/noimage.jpg' : item.Poster}
+                onError={handleImageError}
+                className="card-img-top"
+                alt="No Poster Available"
+              />
               <div className="card-body">
                 <h3 className="card-title">{getTitle(item)}</h3>
                 <p className="card-text">Year: {item.Year}</p>
