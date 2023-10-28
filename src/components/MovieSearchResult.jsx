@@ -12,7 +12,7 @@ const MovieSearchResult = ({ searchResult }) => {
   };
 
   const handleImageError = (e) => {
-    e.target.src = '/noimage.jpg'; // Replace with your placeholder image URL
+    e.target.src = '/noimage.jpg'; 
   };
 
   return (
